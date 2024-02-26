@@ -2,6 +2,7 @@ import { Link } from "react-router-dom";
 import GenderCheckbox from "./GenderCheckbox";
 import { useState } from "react";
 import useSignup from "../../hooks/useSignup";
+import toast from "react-hot-toast";
 
 const SignUp = () => {
 	const [inputs, setInputs] = useState({
@@ -24,7 +25,7 @@ const SignUp = () => {
 			// Display error message or prevent form submission
 			// For example, you can display an error message to the user
 			// and prevent the form from being submitted
-			alert('Username cannot be empty');
+			toast.error("Username can't be empty")
 			return;
 		}
 		await signup(inputs);
@@ -40,7 +41,7 @@ const SignUp = () => {
 				<form onSubmit={handleSubmit}>
 					<div>
 						<label className='label p-2'>
-							<span className='text-base label-text'>Full Name</span>
+							<span className='text-base label-text text-neutral-950'>Full Name</span>
 						</label>
 						<input
 							type='text'
@@ -53,7 +54,7 @@ const SignUp = () => {
 
 					<div>
 						<label className='label p-2 '>
-							<span className='text-base label-text'>Username</span>
+							<span className='text-base label-text text-neutral-950'>Username</span>
 						</label>
 						<input
 							type='text'
@@ -66,7 +67,7 @@ const SignUp = () => {
 
 					<div>
 						<label className='label'>
-							<span className='text-base label-text'>Password</span>
+							<span className='text-base label-text text-neutral-950'>Password</span>
 						</label>
 						<input
 							type='password'
@@ -79,7 +80,7 @@ const SignUp = () => {
 
 					<div>
 						<label className='label'>
-							<span className='text-base label-text'>Confirm Password</span>
+							<span className='text-base label-text text-neutral-950'>Confirm Password</span>
 						</label>
 						<input
 							type='password'
@@ -94,7 +95,7 @@ const SignUp = () => {
 
 					<Link
 						to={"/login"}
-						className='text-sm hover:underline hover:text-blue-600 mt-2 inline-block'
+						className='text-sm hover:underline hover:text-blue-600 mt-2 inline-block text-black'
 						href='#'
 					>
 						Already have an account?
@@ -102,7 +103,7 @@ const SignUp = () => {
 
 					<div>
 						<button className='btn btn-block btn-sm mt-2 border border-slate-700' disabled={loading}>
-							{loading ? <span className='loading loading-spinner'></span> : "Sign Up"}
+							{loading ? <span className='loading loading-spinner text-white'></span> : "Sign Up"}
 						</button>
 					</div>
 				</form>
